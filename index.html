@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ Tech Rider Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <div class="section">
+                <h3>Basic Information</h3>
+                <input type="text" id="artistName" placeholder="Artist/DJ Name">
+                <textarea id="notes" placeholder="Additional Notes"></textarea>
+            </div>
+
+            <div class="section">
+                <h3>Styling</h3>
+                <input type="color" id="primaryCo   lor" value="#2d3748">
+                <select id="fontFamily">
+                    <option value="Arial">Arial</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Roboto">Roboto</option>
+                </select>
+                <input type="number" id="fontSize" placeholder="Font Size" value="16">
+            </div>
+
+            <div class="section">
+                <h3>Logo</h3>
+                <input type="file" id="logoUpload" accept="image/*">
+                <img id="logoPreview">
+            </div>
+
+            <div class="section">
+                <h3>DJ Equipment</h3>
+                <ul class="equipment-list">
+                    <li class="equipment-item">
+                        <input type="checkbox" id="cdj1">
+                        <label for="cdj1">2x Pioneer CDJ-3000</label>
+                    </li>
+                    <li class="equipment-item">
+                        <input type="checkbox" id="cdj2">
+                        <label for="cdj2">2x Pioneer CDJ-2000NXS2</label>
+                    </li>
+                    <li class="equipment-item">
+                        <input type="checkbox" id="mixer1">
+                        <label for="mixer1">Pioneer DJM-900NXS2</label>
+                    </li>
+                    <li class="equipment-item">
+                        <input type="checkbox" id="mon1">
+                        <label for="mon1">2x Pioneer XPRS Monitor Speakers</label>
+                    </li>
+                    <li class="equipment-item">
+                        <input type="checkbox" id="booth">
+                        <label for="booth">DJ Booth with appropriate height and stability</label>
+                    </li>
+                    <li class="equipment-item">
+                        <input type="checkbox" id="power">
+                        <label for="power">Dedicated clean power supply</label>
+                    </li>
+                </ul>
+                <button onclick="addCustomEquipment()">Add Custom Equipment</button>
+            </div>
+
+            <div class="section">
+                <h3>Stage Setup</h3>
+                <canvas id="stageCanvas" width="250" height="150"></canvas>
+                <button onclick="clearStage()">Clear Stage</button>
+            </div>
+
+            <div class="section">
+                <h3>Templates</h3>
+                <button onclick="saveTemplate()">Save Current as Template</button>
+                <select id="templateSelect" onchange="loadTemplate()">
+                    <option value="">Select a template...</option>
+                </select>
+            </div>
+
+            <button onclick="generatePDF()">Generate PDF</button>
+        </div>
+
+        <div class="preview" id="techRiderPreview">
+            <!-- Preview content will be generated here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
